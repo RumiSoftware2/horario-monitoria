@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 const options = [
-  'lunes-4-6',
-  'miercoles-4-6',
-  'viernes-11-1',
-  'ninguno'
+  { value: 'lunes-4-6', label: 'Lunes 4:00 pm – 6:00 pm' },
+  { value: 'miercoles-4-6', label: 'Miércoles 4:00 pm – 6:00 pm' },
+  { value: 'viernes-11-1', label: 'Viernes 11:00 am – 1:00 pm' },
+  { value: 'ninguno', label: 'Ninguno' }
 ];
 
 export default function SchedulesForm({ data, update, next, prev }) {
@@ -34,14 +34,14 @@ export default function SchedulesForm({ data, update, next, prev }) {
     <form onSubmit={handleSubmit} className="panel">
       <h2>Horarios de tutoría (máximo 2)</h2>
       {options.map((opt) => (
-        <div key={opt} className="schedule-option">
-          <label>
+        <div key={opt.value} className="schedule-option">
+          <label className="form-label">
             <input
               type="checkbox"
-              checked={local.schedules.includes(opt)}
-              onChange={() => toggleSchedule(opt)}
+              checked={local.schedules.includes(opt.value)}
+              onChange={() => toggleSchedule(opt.value)}
             />
-            {opt}
+            {opt.label}
           </label>
         </div>
       ))}

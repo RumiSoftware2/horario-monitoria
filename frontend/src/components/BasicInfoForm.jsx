@@ -18,18 +18,18 @@ export default function BasicInfoForm({ data, update, next }) {
     <form onSubmit={handleSubmit} className="panel">
       <h2>Datos básicos</h2>
       <div>
-        <label>Nombre</label>
+        <label className="form-label">Nombre</label>
         <input name="name" value={local.name} onChange={handleChange} required />
       </div>
       <div>
-        <label>Correo institucional</label>
+        <label className="form-label">Correo institucional</label>
         <input name="email" type="email" value={local.email} onChange={handleChange} required />
       </div>
       <div>
-        <label>Grupo</label>
+        <label className="form-label">Grupo</label>
         <select name="group" value={local.group} onChange={handleChange}>
-          <option value={1}>William (1)</option>
-          <option value={2}>Haydee (2)</option>
+          <option value={1}>Grupo 1 – William</option>
+          <option value={2}>Grupo 2 – Haydee</option>
         </select>
       </div>
       <button type="submit">Siguiente</button>
