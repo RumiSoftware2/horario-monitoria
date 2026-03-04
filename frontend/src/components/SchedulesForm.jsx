@@ -31,10 +31,10 @@ export default function SchedulesForm({ data, update, next, prev }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="panel">
       <h2>Horarios de tutoría (máximo 2)</h2>
       {options.map((opt) => (
-        <div key={opt}>
+        <div key={opt} className="schedule-option">
           <label>
             <input
               type="checkbox"
@@ -45,7 +45,7 @@ export default function SchedulesForm({ data, update, next, prev }) {
           </label>
         </div>
       ))}
-      <button type="button" onClick={prev} style={{ marginRight: '1rem' }}>
+      <button type="button" onClick={prev} className="back" style={{ marginRight: '1rem' }}>
         Atrás
       </button>
       <button type="submit">Siguiente</button>

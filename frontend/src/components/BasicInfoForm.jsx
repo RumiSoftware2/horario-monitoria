@@ -15,7 +15,7 @@ export default function BasicInfoForm({ data, update, next }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="panel">
       <h2>Datos básicos</h2>
       <div>
         <label>Nombre</label>
