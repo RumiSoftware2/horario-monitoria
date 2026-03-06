@@ -159,3 +159,42 @@ pre {
 .status.error {
   color: #f00;
 }
+
+/* loading message animation */
+.status.loading {
+  color: var(--secondary-color);
+  animation: blink 1s infinite;
+}
+@keyframes blink {0%,100%{opacity:1;}50%{opacity:0.2;}}
+
+/* full-screen success/game screen */
+.success-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadein 1s;
+}
+.success-screen h1 {
+  font-size: 3rem;
+  color: var(--accent-color);
+  text-shadow: var(--border-glow);
+  animation: neon-flicker 1.5s infinite alternate;
+}
+.success-screen p {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-top: 1rem;
+  text-align: center;
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
