@@ -41,6 +41,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
 h2 {
@@ -58,7 +60,9 @@ h2 {
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: var(--border-glow);
-  margin-bottom: 2rem;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 500px;
   animation: slide-in 0.6s ease-out;
   transition: transform 200ms, box-shadow 200ms;
 }
@@ -152,6 +156,10 @@ pre {
   max-height: 200px;
   color: var(--accent-color);
   font-family: monospace;
+  margin: 0 auto;
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 .status.success {
   color: #0f0;
@@ -197,4 +205,20 @@ pre {
 @keyframes fadein {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* small-screen adjustments */
+@media (max-width: 600px) {
+  #root {
+    padding: 2rem 1rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .panel {
+    padding: 1.5rem;
+  }
+  button {
+    padding: 0.5rem 1rem;
+  }
 }
