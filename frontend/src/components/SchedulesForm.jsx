@@ -41,7 +41,7 @@ export default function SchedulesForm({ data, update, next, prev }) {
     <form onSubmit={handleSubmit} className="panel">
       <h2>Horarios de tutoría</h2>
       <p className="info">
-        Puedes seleccionar hasta los tres horarios disponibles. Si eliges "Ninguno" no podrás escoger otro.
+        Puedes seleccionar hasta los dos horarios disponibles.
       </p>
       {options.map((opt) => (
         <div key={opt.value} className="schedule-option">
