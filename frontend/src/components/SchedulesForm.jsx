@@ -12,14 +12,21 @@ export default function SchedulesForm({ data, update, next, prev }) {
 
   const toggleSchedule = (opt) => {
     setLocal((l) => {
-      const exists = l.schedules.includes(opt);
-      let arr;
-      if (exists) {
-        arr = l.schedules.filter((s) => s !== opt);
-      } else {
-        arr = [...l.schedules, opt];
+      // si el usuario elige "ninguno" limpiamos todo y solo dejamos esa opción
+      if (opt === 'ninguno') {
+        if (l.schedules.includes('ninguno')) {
+          // desmarcar ninguno
+          return { schedules: [] };
+        }
+        return { schedules: ['ninguno'] };
       }
-      if (arr.length > 2) return l; // no más de dos
+      // para cualquier otro horario eliminamos "ninguno" de ser necesario
+      let arr = l.schedules.includes('ninguno') ? [] : [...l.schedules];
+      if (arr.includes(opt)) {
+        arr = arr.filter((s) => s !== opt);
+      } else {
+        arr.push(opt);
+      }
       return { schedules: arr };
     });
   };
@@ -32,7 +39,10 @@ export default function SchedulesForm({ data, update, next, prev }) {
 
   return (
     <form onSubmit={handleSubmit} className="panel">
-      <h2>Horarios de tutoría (máximo 2)</h2>
+      <h2>Horarios de tutoría</h2>
+      <p className="info">
+        Puedes seleccionar hasta los tres horarios disponibles. Si eliges "Ninguno" no podrás escoger otro.
+      </p>
       {options.map((opt) => (
         <div key={opt.value} className="schedule-option">
           <label className="form-label">

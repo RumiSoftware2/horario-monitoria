@@ -35,6 +35,10 @@ body {
   text-align: center;
   border: 2px solid var(--primary-color);
   box-shadow: var(--border-glow);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
@@ -81,6 +85,8 @@ select {
   font-size: 1rem;
   outline: none;
   transition: box-shadow 200ms, transform 200ms;
+  width: 100%;
+  box-sizing: border-box;
 }
 input::placeholder,
 select::placeholder {
@@ -112,6 +118,8 @@ button {
   cursor: pointer;
   transition: background 150ms, box-shadow 150ms;
   margin-top: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 button:hover {
   background: var(--button-hover);
@@ -122,6 +130,13 @@ button:hover {
 /* special styles for the "Atrás" button to differentiate */
 button.back {
   border-color: var(--primary-color);
+}
+
+/* information text inside forms */
+.info {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
 }
 
 /* checkbox list for schedules */
@@ -220,5 +235,8 @@ pre {
   }
   button {
     padding: 0.5rem 1rem;
+  }
+  .schedule-option {
+    font-size: 0.9rem;
   }
 }

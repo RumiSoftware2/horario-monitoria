@@ -33,7 +33,7 @@ export default function Confirmation({ data, prev, onSuccess }) {
     <div className="panel">
       <h2>Confirmación</h2>
       <pre>{JSON.stringify(data, null, 2)}</pre>
-      {loading && <p className="status loading">Cargando... (el servidor puede tardar en responder)</p>}
+      {loading && <p className="status loading">Cargando... (el servidor puede tardar en responder) por lo que es gratuito jejejeje</p>}
       {status && !loading && (
         <p className={`status ${status.success ? 'success' : 'error'}`}>{status.message}</p>
       )}
